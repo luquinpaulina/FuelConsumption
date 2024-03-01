@@ -1,3 +1,5 @@
+import math
+
 # DATA TABLES MEET
 
 # Dictionary format: {Weight class: {'K': value, 'a': value, 'b': value, 'c': value, 'd': value, 'e': value, 'f': value}}
@@ -63,8 +65,10 @@ def calculate_emissions(weight, speed):
 
     return emissions_rate
 
+
+
 # SECOND FORMULA - LOAD CORRECTION FACTOR
-def calculate_load_correction_factor(weight, speed):
+def calculate_load_correction_factor(weight, speed, gradient_percentage):
     """
     Calculate the load correction factor using the MEET model formula. (2.15)
     """
@@ -73,9 +77,9 @@ def calculate_load_correction_factor(weight, speed):
 
     # Calculate load_correction_factor
     load_correction_factor = (params['k'] +
-                              params['n'] * speed +
-                              params['p'] * speed**2 +
-                              params['q'] * speed**3 +
+                              params['n'] * gradient_percentage +
+                              params['p'] * gradient_percentage**2 +
+                              params['q'] * gradient_percentage**3 +
                               params['r'] / speed +
                               params['s'] / speed**2 +
                               params['t'] / speed**3 +
@@ -84,18 +88,29 @@ def calculate_load_correction_factor(weight, speed):
     return load_correction_factor
 
 
-def calculate_total_CO2_emissions(emissions_rate, distance):
+def calculate_total_CO2_emissions(emissions_rate, load_correction_factor, distance):
     """
     Calculate the total CO2 emissions using the MEET model. (2.16)
     """
     # Calculate the total CO2 emissions
-    total_CO2_emissions = emissions_rate * distance
+    total_CO2_emissions = emissions_rate * load_correction_factor * distance
 
     return total_CO2_emissions
 
-def convert_CO2_to_fuel_liters(CO2_emissions_grams, CO2_emissions_factor=2680):
+
+'''def convert_CO2_to_fuel_liters(CO2_emissions_grams, CO2_emissions_factor=3152): #This number affects a lot, we use this for our results Demir
+    """
+    Convert CO2 emissions in grams to fuel consumption in liters.
+    CO2_emissions_factor is the grams of CO2 produced per liter of fuel.
+    """
+    return CO2_emissions_grams / CO2_emissions_factor'''
+
+def convert_CO2_to_fuel_liters(CO2_emissions_grams, CO2_emissions_factor=3197.2): #This number affects a lot, we use this for our results Demir
     """
     Convert CO2 emissions in grams to fuel consumption in liters.
     CO2_emissions_factor is the grams of CO2 produced per liter of fuel.
     """
     return CO2_emissions_grams / CO2_emissions_factor
+
+
+

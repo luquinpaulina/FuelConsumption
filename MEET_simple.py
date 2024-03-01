@@ -52,7 +52,7 @@ def calculate_total_CO2_emissions(emissions_rate, distance):
 
     return total_CO2_emissions
 
-def convert_CO2_to_fuel_liters(CO2_emissions_grams, CO2_emissions_factor=2680):
+def convert_CO2_to_fuel_liters(CO2_emissions_grams, CO2_emissions_factor=3197.2): #This number affects a lot, we use this for our results Demir
     """
     Convert CO2 emissions in grams to fuel consumption in liters.
     CO2_emissions_factor is the grams of CO2 produced per liter of fuel.
@@ -62,7 +62,7 @@ def convert_CO2_to_fuel_liters(CO2_emissions_grams, CO2_emissions_factor=2680):
 
 ## EXPERIEMENTS
 ## DOING FIGURE 2 of Jabali, Van Woensel, and de Kok (2012) - (TABU SEARCH) - Analysis of Travel Times and CO2 Emissions in Time-Dependent Vehicle Routing
-def calculate_emissions_for_speeds(weight, min_speed, max_speed, step, distance):
+'''def calculate_emissions_for_speeds(weight, min_speed, max_speed, step, distance):
     """
     Calculate total CO2 emissions in kg/km for various speeds within a specified range for a given weight.
     """
@@ -111,7 +111,7 @@ def plot_emissions(speeds, emissions):
 speeds = list(emissions_results.keys())
 emissions = list(emissions_results.values())
 
-plot_emissions(speeds, emissions)
+plot_emissions(speeds, emissions)'''
 
 
 

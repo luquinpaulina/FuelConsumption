@@ -28,7 +28,7 @@ def calculate_fuel_rate(fuel_air_mass_ratio, engine_friction_factor, engine_disp
 air_density = 1.2041  # kg/m^3
 drag_coefficient = 0.7
 rolling_resistance_coefficient = 0.01
-drive_train_efficiency = 0.4
+drive_train_efficiency = 0.4 # No change
 engine_efficiency = 0.45
 accessory_power = 0  # hp, converted to kW
 #frontal_area = 3.85  # m^2, average of 2.1 and 5.6
@@ -41,7 +41,7 @@ acceleration = 0 # THIS WE ARE NOT SURE
 grade_radians = 0  # THIS WE ARE NOT SURE
 
 
-def calculate_fuel_rates_for_speeds(weight, min_speed, max_speed, step):
+'''def calculate_fuel_rates_for_speeds(weight, min_speed, max_speed, step):
     results = {}
     fuel_density = 0.832  # Density of diesel fuel in kg/L
     for speed_kmh in range(min_speed, max_speed + 1, step):
@@ -66,15 +66,13 @@ def calculate_fuel_rates_for_speeds(weight, min_speed, max_speed, step):
 
 
 
-light_duty_weight = 3500  # kg, maximum weight for light duty vehicle
+light_duty_weight = 4500  # kg, maximum weight for light duty vehicle
 medium_duty_weight = 5000  # kg, example weight for medium duty vehicle (assumed)
 heavy_duty_weight = 32000  # kg, minimum weight for heavy duty vehicle
 
 
 # Run simulation for each vehicle type
-light_duty_results = calculate_fuel_rates_for_speeds(light_duty_weight, 20, 200, 10)
-medium_duty_results = calculate_fuel_rates_for_speeds(medium_duty_weight, 20, 200, 10)
-heavy_duty_results = calculate_fuel_rates_for_speeds(heavy_duty_weight, 20, 200, 10)
+
 
 
 # Plotting function
@@ -94,4 +92,4 @@ def plot_fuel_rates(vehicle_results, title):
     plt.show()
 
 # Plotting for all vehicle types
-plot_fuel_rates({'Light Duty': light_duty_results, 'Medium Duty': medium_duty_results, 'Heavy Duty': heavy_duty_results}, 'Fuel Consumption vs Speed for Different Vehicle Types')
+plot_fuel_rates({'Light Duty': light_duty_results, 'Medium Duty': medium_duty_results, 'Heavy Duty': heavy_duty_results}, 'Fuel Consumption vs Speed for Different Vehicle Types')'''

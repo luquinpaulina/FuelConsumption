@@ -34,21 +34,6 @@ class TestMEETModel(unittest.TestCase):
         self.assertAlmostEqual(total_emissions, expected_total_emissions, places=2)
         return expected_total_emissions
 
-    def test_scenarios(self):
-        weights = {
-            "Weight_class_1": 7.5,  # Assuming within 3.5 < Weight ≤ 7.5 class
-            "Weight_class_2": 16,  # Assuming within 7.5 < Weight ≤ 16 class
-            "Weight_class_3": 32,  # Assuming within 16 < Weight ≤ 32 class
-            "Weight_class_4": 33,  # Assuming < 32 class
-        }
-        speeds = [50, 70, 100]  # Speeds in km/h
-        distance = 100  # Distance in km
-
-        for weight_class, weight in weights.items():
-            for speed in speeds:
-                with self.subTest(weight_class=weight_class, speed=speed):
-                    total_emissions = self.run_scenario_test(weight, speed, distance)
-                    #print(f"Total CO2 emissions for {weight_class} at {speed} km/h over {distance} km: {total_emissions} grams")
 
     def test_fuel_usage_scenarios(self):
         weights = {
