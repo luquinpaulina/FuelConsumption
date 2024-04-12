@@ -42,7 +42,7 @@ class TestMEETModel(unittest.TestCase):
             "Weight_class_3": 32,
             "Weight_class_4": 33,
         }
-        speeds = [50, 70, 100]
+        speeds = [20,30,40,50,60,70,80,90,100,110,120]
         distance = 100
 
         for weight_class, weight in weights.items():

@@ -33,7 +33,8 @@ def plot_speed_vs_fuel_usage_for_weights(weights, speeds, distance):
     plt.grid(True, which='both', linestyle='--', linewidth=0.5)
     plt.xticks(fontsize=12)
     plt.yticks(fontsize=12)
-    plt.ylim(5, 70)  # Set y-axis to range from 5 to 60 liters
+    #plt.ylim(5, 70)  # Set y-axis to range from 5 to 60 liters
+    plt.ylim(0, 100)  # DEMIR
     plt.legend(loc='upper left', fontsize=12, title="Vehicle Weight Category")
     plt.tight_layout()
 
@@ -46,7 +47,8 @@ weights = {
     "Weight 16 to 32 tons": 32,
     "Weight above 32 tons": 33,
 }
-speeds = list(range(30, 121, 10))  # Expanding speed range for sensitivity analysis
+#speeds = list(range(30, 121, 10))  # Expanding speed range for sensitivity
+speeds = list(range(20, 121, 10))  # DEMIR
 distance = 100
 
 plot_speed_vs_fuel_usage_for_weights(weights, speeds, distance)
